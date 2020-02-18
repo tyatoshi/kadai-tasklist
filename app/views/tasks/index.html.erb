@@ -2,5 +2,6 @@
   <ul>
     <li><%= link_to task.id,task %>:<%= task.content %> &ndash; <%= task.status%></li> 
   </ul>
-
 <% end%>
+
+<%= paginate @tasks %>
