@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   ]
   
   def index
-    @tasks =Task.all.order(created_at: :desc).page(params[:page]).per(10)
+    @tasks =Task.all.order(created_at: :desc).page(params[:page]).per(30)
   end
   
   def show

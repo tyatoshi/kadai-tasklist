@@ -1,7 +1,17 @@
-<% @tasks.each do |task| %>
-  <ul>
-    <li><%= link_to task.id,task %>:<%= task.content %> &ndash; <%= task.status%></li> 
-  </ul>
-<% end%>
+<table class="table">
+  <tr>
+    <th class="text-center">id</th>
+    <th class="text-center">タスク</th>
+    <th class="text-center">ステータス</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td class="text-center"><%= link_to task.id,task %></td>
+      <td class="text-center"><%= task.content %></td>
+      <td class="text-center"><%= task.status%></td>
+    </tr>
+  <% end%>
+</table>
 
 <%= paginate @tasks %>
+
