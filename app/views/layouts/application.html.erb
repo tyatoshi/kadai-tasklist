@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>KadaiTasklist</title>
     <%= csrf_meta_tags %>
@@ -19,11 +19,11 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-info">
       <%= link_to "TASKリスト", "/" ,class: "navbar-brand" %>
     
-    <bottm type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
-    </bottm>
+    </button>
     
-    <div class="collapse navbar-collapse" id="nav-bar">
+    <div class="collapse navbar-collapse justify-content-end" id="nav-bar">
       <ul class="navbar-nav">
         <li class="nav-item"><%= link_to "新規作成", "/tasks/new" , class: "nav-link"%></li>
       </ul>
@@ -32,8 +32,8 @@
     </nav>
     
   </header>
-  <body>
-    <%= render 'layouts/flash_task' %>
-    <%= yield %>
-  </body>
+    <div class="ml-3 mt-3">
+      <%= render 'layouts/flash_task' %>
+      <%= yield %>
+    </div>
 </html>
