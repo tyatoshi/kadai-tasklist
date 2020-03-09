@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :tasks
   
   resources :users
-  get "login" ,to: "users#top"
-
+  
+  get "login" ,to: "sessions#new"
+  post 'login', to: 'sessions#create'
   
 end

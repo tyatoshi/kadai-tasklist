@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-6">
-    <%= form_with(model:@user, local: true) do |f| %>
+    <%= form_with(url:login_path, scope: :session, local: true) do |f| %>
   
     <div class="form-group row">
       <label class="col-sm-3 col-form-label text-center"><%='E-mail' %></label>
