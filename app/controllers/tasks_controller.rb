@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
   before_action :require_user_logged_in
+  before_action :ensure_correct_user, only:[:show, :edit, :update, :destroy]
   
   def index
     @tasks =current_user.tasks.order(id: :desc).page(params[:page])
@@ -55,6 +56,14 @@ class TasksController < ApplicationController
   
   def task_params
     params.require(:task).permit(:content,:status)
+  end
+  
+  def ensure_correct_user
+    @task = Task.find_by(id: params[:id])
+    if @task.user_id != current_user.id
+      flash[:success] = '権限がありません'
+      redirect_to tasks_path
+    end
   end
   
 end
